@@ -59,6 +59,17 @@ def show_entries():
         print("request made by -->", request.method)
         return render_template('home_page.html', entries=stream_entries , name="Not Playing!")
 
+@app.route('/about_us')
+def about_us():
+    stream_entries = return_dict()
+    return render_template('about_us.html', entries=stream_entries , name="Not Playing!")
+
+
+@app.route('/contact_us')
+def contact_us():
+    stream_entries = return_dict()
+    return render_template('contact_us.html', entries=stream_entries , name="Not Playing!")
+
 
 # launch a Tornado server with HTTPServer.
 if __name__ == "__main__":
