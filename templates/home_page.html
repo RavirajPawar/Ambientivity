@@ -1,0 +1,59 @@
+{%extends 'layout.html'%}
+{%block body%}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card col-sm-12">
+                <div class="card-header">
+                    {{name}}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {% if song %}
+                            <div>
+                                <audio controls>
+                                    <source src="{{url_for('static', filename=song)}}"  type="audio/mp3">
+                                </audio>
+                            </div>
+                        {% else %}
+                            <div>
+                                <audio controls >
+                                    <source src="" type="audio/mp3">
+                                </audio>
+                            </div>
+                        {% endif %}
+                    </h5>
+                    {% for song in entries %}
+                    <form method="POST">
+                        <div>
+                            <input type="hidden" value="{{song.id}}" id="stream_id" name="stream_id">
+                            <input type="submit" class="btn btb-link" value="{{song.name}}">
+                        </div>
+                    </form>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card col-sm-12">
+                <div class="card-header">
+                    <h1> Welcome to Ambientivity!</h1>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {% if paragraphs %}
+                            {% for paragraph in paragraphs %}
+                                <p> {{ paragraph}} </p>
+                            {% endfor %}
+                        {% else %}
+                            <p>Ambientivity recreates the ambient sounds to boost your creativity and help you work better. Proven and peer reviewed, see the research to learn more.</p>
+                        {% endif %}
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+</div>
+{%endblock%}
