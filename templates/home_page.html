@@ -1,17 +1,27 @@
 {%extends 'layout.html'%}
+
 {%block body%}
-    <div class="card-header">
-        <h1> Welcome to Ambientivity!</h1>
+    <div class="row">
+            <div class ="col-lg-4 col-sm-12" >
+                <img src="static/images/headphone_guy.jpg" style="height:150px;width:150px;align:center">
+            </div>
+            <div class ="col-lg-8">
+                <div class="card-header text-center" style="margin-top:1%">
+                    <h1> Welcome to Ambientivity!</h1>
+                </div>
+            </div>
     </div>
-    <div class="card-body">
-        <h5 class="card-title">
-            {% if paragraphs %}
-                {% for paragraph in paragraphs %}
-                    <p> {{ paragraph}} </p>
-                {% endfor %}
-            {% else %}
-                <p>Ambientivity recreates the ambient sounds to boost your creativity and help you work better. Proven and peer reviewed, see the research to learn more.</p>
-            {% endif %}
-        </h5>
-    </div>
+            <div class ="col-lg-12">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {% if paragraphs %}
+                            {% for paragraph in paragraphs %}
+                                <p><em>{{ paragraph}}</em> </p>
+                            {% endfor %}
+                        {% else %}
+                            <p><em>Ambientivity recreates the ambient sounds to boost your creativity and help you work better. Proven and peer reviewed, see the research to learn more.</em></p>
+                        {% endif %}
+                    </h5>
+                </div>
+            </div>
 {%endblock%}

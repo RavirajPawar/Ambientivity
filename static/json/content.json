@@ -1,9 +1,30 @@
 {
   "Accoustic Breeze" : ["Accoustic Breeze helps you to improve your concentration level, This is because it offers the brain a chance to relax more and, in the process, one is able to think through the task that they are doing with more precision",
-                        "It Is Suitable for Meditation, If you have ever visited a meditation centre or watched a yoga video online, you will notice that for the most part, they will employ the use of acoustic music in the background. The reason for this is the same as in point one. Acoustic music helps the people doing these meditative exercises to relax their minds and through this relaxation, they are able to meditate more clearly and with more concentration"],
+                        "It Is Suitable for Meditation, If you have ever visited a meditation centre or watched a yoga video online, you will notice that for the most part, they will employ the use of acoustic music in the background. The reason for this is the same as in point one. Acoustic music helps the people doing these meditative exercises to relax their minds and through this relaxation, they are able to meditate more clearly and with more concentration"
+                        ],
   "Happy Rock" : ["Happy Rock will enhance your divergent thinking that is often associated with creativity and problem-solving reveal a study conducted in the Netherlands.",
                   "Wheather you are bored or just want to have something to smoothen your soul then Happy rock music is the best option. You will notice that there is an opportunity for you to dance to the music or just listen to the beats all these depend on what you enjoy doing.",
-                  " Listening to this kind of music can help set the stage boosts your creative thought process."],
-  "Ukulele" : [""]
-
+                  " Listening to this kind of music can help set the stage boosts your creative thought process."
+                  ],
+  "Ukulele" : ["It improves your Mental Health,and  it improves your concentration",
+                "It can also reduce heart rate, lower blood pressure, decrease cortisol (stress hormone) levels and increase serotonin and endorphin levels in the blood. It elevates mood. Music can boost the brain's production of the hormone dopamine"
+              ],
+  "Nature Sound" : ["Whether it is the calming sound of waves along the shoreline, the forest leaves rustling in the wind or perhaps rain dripping down on a roof, the sounds of nature can help relax your mind, body and soul.",
+                    "Listening to nature has a way of transporting us from these noisy places to a place that feels more nourishing and calm.",
+                    "Listening to nature sounds at the end of the day can help give our brains a break and make us feel more content and refreshed, and less stressed."
+                    ],
+  "Swaying of the Wind" : ["Once you settle on a nature sound you find pleasant, Gould van Praag says it may also help improve your focus and concentration. In the study, participants performed best at ",
+                            "attention tasks when listening to sounds that were considered familiar, compared with unfamiliar ones. ",
+                            "I think this supports the importance of finding an environment or sound machine that is right for the individual says Gould van Praag."
+                            ],
+  "I am Affirmation" : ["Listen to this before you start your day and before you go to bed! I AM morning affirmations for success!",
+                        "Close the eyes and feel it! Start your day with positive Energry",
+                        "It brings positivity, you will feel confident"
+                        ],
+  "Walking on Streets" : ["In this Difficult times we will take you to streets of New York! Close your eyes and enjoy walking on streets"
+                          ],
+  "Lunch Time Lounge" : ["According to a peer-reviewed study out of the University of Chicago",
+                          "A moderate level of ambient noise is conducive to creative cognition.",
+                         "In a nutshell, this means being a tiny bit distracted helps you be more creative. This is why those AHA moments happen when we're brushing our teeth, taking a shower, or mowing the lawn! If we're not focused too much at a task at hand, we come up with awesome stuff."
+                        ]
 }
