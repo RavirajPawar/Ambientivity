@@ -24,11 +24,11 @@ root.addHandler(ch)
 def return_dict():
     # Dictionary to store music file information
     all_songs = list()
-    for id,filename in enumerate(os.listdir('static/music')):
+    for id,filename in enumerate(os.listdir('/home/Ambientivity/Ambientivity/static/music/')):
         song_info = dict()
         song_info["id"] = str(id+1)
         song_info["name"], extension = os.path.splitext(filename)
-        song_info["link"] = "music/"+filename
+        song_info["link"] = "/home/Ambientivity/Ambientivity/static/music/"+filename
         all_songs.append(song_info)
     print(all_songs)
     return all_songs
@@ -42,7 +42,7 @@ app = Flask(__name__)
 @app.route('/', methods=["GET", "POST"])
 def show_entries():
     stream_entries = return_dict()
-    content = json.load(open(os.path.join("static","json","content.json")))
+    content = json.load(open(os.path.join("/home","Ambientivity","Ambientivity","static","json","content.json")))
     print(content)
     if request.method == 'POST':
         print("request made by -->", request.method)
