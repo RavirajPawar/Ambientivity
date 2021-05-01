@@ -3,7 +3,7 @@ import logging
 import os
 import sys
 
-from flask import Flask, render_template, Response, stream_with_context
+from flask import Flask, render_template, Response
 from tornado.httpserver import HTTPServer
 from tornado.ioloop import IOLoop
 # Tornado web server
@@ -26,22 +26,16 @@ root.addHandler(ch)
 def return_dict():
     # Dictionary to store music file information
     all_songs = list()
+    url = "http://localhost:5000/"
     for id, filename in enumerate(os.listdir('static/music')):
         song_info = dict()
         song_info["id"] = str(id + 1)
         song_info["name"], extension = os.path.splitext(filename)
         song_info["link"] = os.path.join("static", "music", filename)
+        song_info["url"] = '{}/{}'.format(url, str(id + 1))
         all_songs.append(song_info)
     print(all_songs)
     return all_songs
-
-
-def stream_template(template_name, **context):
-    app.update_template_context(context)
-    t = app.jinja_env.get_template(template_name)
-    rv = t.stream(context)
-    rv.disable_buffering()
-    return rv
 
 
 # Route to render GUI
@@ -74,7 +68,7 @@ def stream_music(stream_id):
                 # logging.debug('Music data fragment : ' + str(count))
                 # count += 1
 
-    return Response(stream_with_context(stream_template('home_page.html', song=generate(), entries=stream_entries)))
+    return Response(generate(), mimetype="audio/mp3")
 
 
 @app.route('/about_us')

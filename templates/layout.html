@@ -19,36 +19,27 @@
                   width: 100%;
               }
          }
+
     </style>
 </head>
 <body>
-    {%include 'include/navbar.html'%}
-    <div class="container">
+{%include 'include/navbar.html'%}
+<div class="container">
     <div class="row">
         <div class="col-md-4">
-            <div class="card col-sm-12" >
-                <div class="card-header"style="margin-top:1%">
+            <div class="card col-sm-12">
+                <div class="card-header" style="margin-top:1%">
                     <strong>{{name}}</strong>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">
-                        {% if song %}
-                            <div>
-                                <audio controls>
-                                    <source src="{{song}}"  type="audio/mp3">
-                                </audio>
-                            </div>
-                        {% else %}
-                            <div>
-                                <audio controls >
-                                    <source src="" type="audio/mp3">
-                                </audio>
-                            </div>
-                        {% endif %}
-                    </h5>
                     {% for song in entries %}
                     <div class="form group">
-                        <a href="/{{song.id}}">{{song.name}}</a>
+                        <span>{{song.name}}</span>
+                    </div>
+                    <div>
+                        <audio controls>
+                          <source src="{{song.url}}"  type="audio/mp3">
+                        </audio>
                     </div>
                     {% endfor %}
                 </div>
@@ -61,17 +52,17 @@
             </div>
         </div>
     </div>
-    </div>
-    <hr>
+</div>
+<hr>
 
-    <script crossorigin="anonymous"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script crossorigin="anonymous"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script crossorigin="anonymous"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
