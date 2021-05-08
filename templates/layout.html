@@ -32,20 +32,20 @@
             <div class="card col-sm-12">
                 <div class="card-header" style="margin-top:1%">
                     <strong>{{name}}</strong>
-                    {% if song_url %}
+                    {% if song_id %}
                         <audio autoplay controls>
-                            <source src="{{song_url}}" type="audio/mp3">
+                            <source src="{{url_for('stream_music', stream_id= song_id)}}" type="audio/mp3">
                         </audio>
                     {% else %}
                         <audio autoplay controls>
-                            <source src="{{song_url}}" type="audio/mp3">
+                            <source src=" " type="audio/mp3">
                         </audio>
                     {% endif %}
                 </div>
                 <div class="card-body">
                     {% for song in entries %}
                     <div class="form group">
-                        <a href="{{song.url}}"><span>{{song.name}}</span></a>
+                        <a href="{{url_for('song_url_sender', song_name= song.name)}}"><span>{{song.name}}</span></a>
                     </div>
                     <div>
 

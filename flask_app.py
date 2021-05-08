@@ -2,6 +2,7 @@
 import logging
 import os
 import sys
+import json
 
 from flask import Flask, render_template, Response
 from tornado.httpserver import HTTPServer
@@ -24,7 +25,7 @@ ch.setFormatter(formatter)
 root.addHandler(ch)
 
 
-def return_dict():
+def return_song_dict():
     # Dictionary to store music file information
     all_songs = list()
     for id, filename in enumerate(os.listdir('static/music')):
@@ -41,40 +42,42 @@ def return_dict():
 # Route to render GUI
 @app.route('/', methods=["GET"])
 def show_entries():
-    stream_entries = return_dict()
+    stream_entries = return_song_dict()
     return render_template('home_page.html', entries=stream_entries, name="Not Playing!")
 
 
-@app.route('/<name>', methods=['GET'])
-def song_url_sender(name):
-    stream_entries = return_dict()
+@app.route('/<song_name>', methods=['GET'])
+def song_url_sender(song_name):
+    stream_entries = return_song_dict()
+    song_details = json.load(open(os.path.join("static", "json", "content.json")))
     display_song_name = "Not Found"
-    display_song_url = None
+    display_song_id = None
     for item_dict in stream_entries:
         for key, value in item_dict.items():
-            if name == value:
-                display_song_url = '{}/{}'.format(url, item_dict["id"])
+            if song_name == value:
+                display_song_id = item_dict["id"]
                 display_song_name = value
                 break
 
-    return render_template('home_page.html', entries=stream_entries, name=display_song_name, song_url= display_song_url)
+    return render_template('home_page.html', entries=stream_entries, name=display_song_name, song_id=display_song_id,
+                           paragraphs = song_details.get(song_name, ["Please click on any song",
+                                                                     "you are trying to visit non valid link"]))
 
 
 # Route to stream music
 @app.route('/<int:stream_id>', methods=["GET"])
 def stream_music(stream_id):
-    print("passed id:- ", str(stream_id))
-    stream_entries = return_dict()
+    # print("passed id:- ", str(stream_id))
 
     def generate():
-        data = return_dict()
+        data = return_song_dict()
         # count = 1
         song_path = None
         for item in data:
             if item['id'] == str(stream_id):
                 song_path = item['link']
                 break
-        print(song_path)
+        # print(song_path)
         with open(song_path, "rb") as fwav:
             data = fwav.read(1024)
             while data:
@@ -88,13 +91,13 @@ def stream_music(stream_id):
 
 @app.route('/about_us')
 def about_us():
-    stream_entries = return_dict()
+    stream_entries = return_song_dict()
     return render_template('about_us.html', entries=stream_entries, name="Not Playing!")
 
 
 @app.route('/contact_us')
 def contact_us():
-    stream_entries = return_dict()
+    stream_entries = return_song_dict()
     return render_template('contact_us.html', entries=stream_entries, name="Not Playing!")
 
 
