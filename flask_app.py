@@ -14,6 +14,7 @@ app = Flask(__name__)
 
 root = logging.getLogger()
 root.setLevel(logging.DEBUG)
+url = "http://localhost:5000/"
 
 ch = logging.StreamHandler(sys.stdout)
 ch.setLevel(logging.DEBUG)
@@ -26,13 +27,12 @@ root.addHandler(ch)
 def return_dict():
     # Dictionary to store music file information
     all_songs = list()
-    url = "http://localhost:5000/"
     for id, filename in enumerate(os.listdir('static/music')):
         song_info = dict()
         song_info["id"] = str(id + 1)
         song_info["name"], extension = os.path.splitext(filename)
         song_info["link"] = os.path.join("static", "music", filename)
-        song_info["url"] = '{}/{}'.format(url, str(id + 1))
+        song_info["url"] = '{}/{}'.format(url, song_info["name"])
         all_songs.append(song_info)
     print(all_songs)
     return all_songs
@@ -43,6 +43,21 @@ def return_dict():
 def show_entries():
     stream_entries = return_dict()
     return render_template('home_page.html', entries=stream_entries, name="Not Playing!")
+
+
+@app.route('/<name>', methods=['GET'])
+def song_url_sender(name):
+    stream_entries = return_dict()
+    display_song_name = "Not Found"
+    display_song_url = None
+    for item_dict in stream_entries:
+        for key, value in item_dict.items():
+            if name == value:
+                display_song_url = '{}/{}'.format(url, item_dict["id"])
+                display_song_name = value
+                break
+
+    return render_template('home_page.html', entries=stream_entries, name=display_song_name, song_url= display_song_url)
 
 
 # Route to stream music
