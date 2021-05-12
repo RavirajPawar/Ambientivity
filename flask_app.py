@@ -10,6 +10,8 @@ from tornado.ioloop import IOLoop
 # Tornado web server
 from tornado.wsgi import WSGIContainer
 
+from flask import send_file
+
 # Initialize Flask.
 app = Flask(__name__)
 
@@ -35,7 +37,7 @@ def return_song_dict():
         song_info["link"] = os.path.join("static", "music", filename)
         song_info["url"] = '{}/{}'.format(url, song_info["name"])
         all_songs.append(song_info)
-    print(all_songs)
+    # print(all_songs)
     return all_songs
 
 
@@ -71,6 +73,7 @@ def stream_music(stream_id):
 
     def generate():
         data = return_song_dict()
+        print("aaya")
         # count = 1
         song_path = None
         for item in data:

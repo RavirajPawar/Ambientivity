@@ -33,11 +33,11 @@
                 <div class="card-header" style="margin-top:1%">
                     <strong>{{name}}</strong>
                     {% if song_id %}
-                        <audio autoplay controls>
+                        <audio autoplay controls controlsList="nodownload" loop style="width:90%">
                             <source src="{{url_for('stream_music', stream_id= song_id)}}" type="audio/mp3">
                         </audio>
                     {% else %}
-                        <audio autoplay controls>
+                        <audio autoplay controls style="width:90%">
                             <source src=" " type="audio/mp3">
                         </audio>
                     {% endif %}
