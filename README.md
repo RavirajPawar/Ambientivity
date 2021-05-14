@@ -7,7 +7,7 @@ We thought to share this collection and advantages of nice music with you all pe
 
 ## Getting Started
 
-You can visit our site [Link to ambientivity]('http://ambientivity.pythonanywhere.com/').
+You can visit our site [Link to ambientivity](http://ambientivity.pythonanywhere.com/)
 
 
 ## Prerequisites
