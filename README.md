@@ -1,22 +1,19 @@
-# Simple Flask Music Streaming App 
+# Ambientivity Music Streaming App 
 
-A simple Flask app for streaming music
+Ambientivity is collection of **soothing** and **ambient** tunes.
+Listing such music can help you to improve **concentration** and **productivity**.
+We thought to share this collection and advantages of nice music with you all people.
+
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+You can visit our site [http://ambientivity.pythonanywhere.com/]('http://ambientivity.pythonanywhere.com/').
 
-### Prerequisites
 
-What things you need to install the software and how to install them
+## Prerequisites
 
-```
-Python 3
-Flask
-Tornado Web Server
-```
-
-### Installing
+This application is build using **python 3.6** and **Flask** and **Tornado Web server**.
+You will get requirements.txt in project folder from this you can easily install required packages
 
 Installing dependencies 
 ```
@@ -25,13 +22,10 @@ pip install -r requirements.txt
 Once all packages are downloaded and installed run.
 
 ```
-python app.py
+python flask_app.py
 ```
 
-## Running the tests
+## Contribution
 
-Open up your browser and visit
-```
-http://localhost:5000
+You can contribute by raising pull request.
 
-```
