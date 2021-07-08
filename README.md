@@ -5,7 +5,7 @@ Listing such music can help you to improve **concentration** and **productivity*
 We thought to share this collection and advantages of nice music with you all people.
 
 
-## Getting Started
+## Website
 
 You can visit our site [Link to ambientivity](http://ambientivity.pythonanywhere.com/)
 
@@ -27,5 +27,5 @@ python flask_app.py
 
 ## Contribution
 
-You can contribute by raising pull request.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
